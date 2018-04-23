@@ -1,0 +1,9 @@
+<div class="form">
+  <mat-form-field [floatLabel]="'auto'">
+    <input matInput type="text" placeholder="User" [(ngModel)]="user" />
+  </mat-form-field>
+  <mat-form-field [floatLabel]="'auto'">
+    <input matInput type="password" placeholder="Password" [(ngModel)]="password" />
+  </mat-form-field>
+  <button mat-raised-button (click)="login()">Login</button>
+</div>

@@ -1,0 +1,19 @@
+<section [@flyIn]="'in'">
+  <div class="account">
+    <h2>
+      {{(account | async).owner}}'s Account - {{(account | async).balance | currency}}
+    </h2>
+    <button mat-raised-button (click)="showDialog()">
+      <mat-icon>add</mat-icon>
+    </button>
+    <mat-list>
+      <mat-list-item *ngFor="let transaction of transactions | async">
+        {{transaction.purpose}}:
+        <span [ngClass]="{debit:transaction.amount < 0, credit: transaction.amount > 0}">
+          {{transaction.amount | currency}}
+        </span>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</section>
+

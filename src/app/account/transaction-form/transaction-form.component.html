@@ -1,0 +1,13 @@
+<mat-dialog-content>
+  <mat-form-field [floatLabel]="'auto'">
+    <input matInput type="text" placeholder="Purpose" [(ngModel)]="transaction.purpose"/>
+  </mat-form-field>
+  <mat-form-field [floatLabel]="'auto'">
+    <input matInput type="number" placeholder="Amount" [(ngModel)]="transaction.amount"/>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button [mat-dialog-close]="transaction">Add</button>
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
+
