@@ -1,5 +1,5 @@
 export class Transaction {
-  amount: number = 0.00;
+  amount: number;
   purpose: string;
   date: string = new Date().toISOString();
 }

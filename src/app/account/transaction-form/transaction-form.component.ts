@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Transaction} from "../../model/transaction";
+import {MatDialog} from "@angular/material";
 
 @Component({
   selector: 'app-transaction-form',
@@ -10,7 +11,7 @@ export class TransactionFormComponent implements OnInit {
 
   public transaction = new Transaction();
 
-  constructor() { }
+  constructor(public dialog:MatDialog) { }
 
   ngOnInit() {
   }
