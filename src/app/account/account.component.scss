@@ -10,3 +10,12 @@
 .debit {
   color: #dd0000;
 }
+.add-buton {
+  position: fixed;
+  //bottom: 5px;
+  //right: 5px;
+  z-index: 1;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: #00dd00;
+}

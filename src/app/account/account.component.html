@@ -3,9 +3,6 @@
     <h2>
       {{(account | async).owner}}'s Account - {{(account | async).balance | currency}}
     </h2>
-    <button mat-raised-button (click)="showDialog()">
-      <mat-icon>add</mat-icon>
-    </button>
     <mat-list>
       <mat-list-item *ngFor="let transaction of transactions | async">
         {{transaction.purpose}}:
@@ -16,4 +13,7 @@
     </mat-list>
   </div>
 </section>
+<button mat-fab (click)="showDialog()" class="add-buton">
+  <mat-icon>add</mat-icon>
+</button>
 
