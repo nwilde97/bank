@@ -43,7 +43,9 @@ export class AccountService {
 
   saveTransaction(t:Transaction):Observable<Transaction>{
     this.transactions.push(t);
-    this._transactions.next(this.transactions);
+    this._transactions.next(this.transactions.sort((a,b)=>{
+      return b.date.localeCompare(a.date);
+    }));
     return Observable.of(t);
   }
 }

@@ -3,14 +3,16 @@
     <h2>
       {{(account | async).owner}}'s Account - {{(account | async).balance | currency}}
     </h2>
-    <mat-list>
-      <mat-list-item *ngFor="let transaction of transactions | async">
-        {{transaction.purpose}}:
+    <mat-card *ngFor="let transaction of transactions | async">
+      <mat-card-header>
+        <mat-card-subtitle>{{transaction.date | date:"MMM d, yyyy"}} - {{transaction.purpose}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
         <span [ngClass]="{debit:transaction.amount < 0, credit: transaction.amount > 0}">
           {{transaction.amount | currency}}
         </span>
-      </mat-list-item>
-    </mat-list>
+      </mat-card-content>
+    </mat-card>
   </div>
 </section>
 <button mat-fab (click)="showDialog()" class="add-buton">
