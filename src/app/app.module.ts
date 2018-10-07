@@ -8,7 +8,7 @@ import {RoutingModule} from "./routing.module";
 import { AccountListComponent } from './account-list/account-list.component';
 import {
   MAT_DIALOG_DEFAULT_OPTIONS,
-  MatButtonModule, MatDialogModule,
+  MatButtonModule, MatCardModule, MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule, MatListModule,
@@ -44,7 +44,8 @@ import { TransactionFormComponent } from './account/transaction-form/transaction
     MatMenuModule,
     MatIconModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule
   ],
   providers: [
     LoginService,
