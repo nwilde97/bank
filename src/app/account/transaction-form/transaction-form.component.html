@@ -1,7 +1,14 @@
 <mat-dialog-content>
   <form #form>
     <mat-form-field [floatLabel]="'auto'">
-      <input matInput required type="text" name="purpose" placeholder="Purpose" [(ngModel)]="transaction.purpose"/>
+      <mat-select placeholder="Category" [required]="true" [(value)]="transaction.category">
+        <mat-option *ngFor="let category of categories" [value]="category">
+          {{category}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field [floatLabel]="'auto'">
+      <input matInput required type="text" name="purpose" placeholder="Description" [(ngModel)]="transaction.description"/>
     </mat-form-field>
     <mat-form-field [floatLabel]="'auto'">
       <input matInput required type="number" step="0.01" name="amount" placeholder="Amount" [(ngModel)]="transaction.amount" />

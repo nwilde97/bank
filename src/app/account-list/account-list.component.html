@@ -1,5 +1,5 @@
-<mat-list [@flyIn]="'in'">
-  <ng-container *ngFor="let account of (accounts | async); last as isLast">
+<mat-list [@flyIn]="'in'" *ngIf="accounts$ | async as accounts">
+  <ng-container *ngFor="let account of accounts; last as isLast">
     <mat-list-item>
       <button mat-button [routerLink]="['/account',account.owner]">{{account.owner}}</button>
     </mat-list-item>

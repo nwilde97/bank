@@ -1,11 +1,11 @@
-<section [@flyIn]="'in'">
+<section [@flyIn]="'in'" *ngIf="account$ | async as account">
   <div class="account">
     <h2>
-      {{(account | async).owner}}'s Account - {{(account | async).balance | currency}}
+      {{account.owner}}'s Account - {{account.balance | currency}}
     </h2>
-    <mat-card *ngFor="let transaction of transactions | async">
+    <mat-card *ngFor="let transaction of account.transactions">
       <mat-card-header>
-        <mat-card-subtitle>{{transaction.date | date:"MMM d, yyyy"}} - {{transaction.purpose}}</mat-card-subtitle>
+        <mat-card-subtitle>{{transaction.date | date:"MMM d, yyyy"}} - {{transaction.category}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <span [ngClass]="{debit:transaction.amount < 0, credit: transaction.amount > 0}">

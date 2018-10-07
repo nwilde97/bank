@@ -12,9 +12,9 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule, MatListModule,
-  MatMenuModule,
+  MatMenuModule, MatSelectModule,
   MatToolbarModule
-} from "@angular/material";
+} from '@angular/material';
 import {LoginService} from "./service/login.service";
 import {AuthGuard} from "./auth/auth.guard";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -22,6 +22,11 @@ import {FormsModule} from "@angular/forms";
 import { AccountComponent } from './account/account.component';
 import {AccountService} from "./service/account.service";
 import { TransactionFormComponent } from './account/transaction-form/transaction-form.component';
+import {reducer, root} from './state/reducer';
+import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
+import {StateEffects} from './state/effects';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 
 @NgModule({
@@ -40,12 +45,19 @@ import { TransactionFormComponent } from './account/transaction-form/transaction
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
     MatListModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    StoreModule.forRoot(root),
+    EffectsModule.forRoot([StateEffects]),
+    StoreDevtoolsModule.instrument({
+      // maxAge: 25, // Retains last 25 states
+      // logOnly: environment.production, // Restrict extension to log-only mode
+    })
   ],
   providers: [
     LoginService,
